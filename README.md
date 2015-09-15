@@ -1,2 +1,2 @@
-# fieldspy
-jQuery fieldSpy Plugin
+# jQuery fieldSpy Plugin
+
