@@ -1,5 +1,7 @@
 # Fieldspy
 
+Fieldspy lets you show or hide fields based on other fields current value.
+
 Most other JS form plugins that deal with conditionally showing or hiding "sub-fields" can only check
 for either "and" or "or", but not for both at the same time. Fieldspy is capable of checking unlimited
 "and/or" conditions. However, Fieldspy currently only works for "choice" type fields (i.e. select,
@@ -27,16 +29,13 @@ var condition = [
     { '.other-field-selector' : 'value-to-look-for' }
 ];
 $('.field-selector').fieldspy( condition, function(result) {
-    if ( result ) {
-        $(this).show();
-    } else {
-        $(this).hide();
-    }
+    $(this).toggle(result);
 });
 ```
 
-In the example above `$('.field-selector')` will show or hide if `value-to-look-for` is the current
-value of `.other-field-selector`.
+In the example above, the `result` parameter of the callback function is a boolean and
+`$('.field-selector')` will show or hide if `value-to-look-for` is the current value of
+`.other-field-selector`.
 
 ### Writing Conditions
 
