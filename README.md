@@ -42,7 +42,7 @@ value of `.other-field-selector`.
 
 As mentioned before, Fieldspy is capable of handling multiple "and/or" conditions. You may have already
 noticed that in the example above the condition variable is an array that holds an object literal. You
-can pass multiple object literals to the condition array. From here, simply imagine an "or" operator
+can pass multiple object literals to the condition array. Now simply imagine an "or" operator
 between each object and an "and" operator between all name-value pairs inside an object. Have a look
 at the example below:
 
@@ -51,7 +51,7 @@ var condition = [
     {
         '.the-checkbox' : [ 'one', 'three' ],
         // and
-        '.the-checkbox-2' : 'number'
+        '.the-checkbox-2' : 'number',
     },
     // or
     {
@@ -63,13 +63,14 @@ var condition = [
     {
         '.the-radio' : [ 'green', 'blue' ],
         // and
-        '.the-radio-2' : 'color'
+        '.the-radio-2' : 'color',
     }
 ];
 ```
 
-Value arrays inside an object are shorthand "and" operators. With that in mind, the example above
-would translate to an "if" statement that would look like this:
+Value arrays (i.e. `[ 'one', 'three' ]` & `[ 'green', 'blue' ]`) inside an object are shorthand "and"
+operators. With that in mind, the example above would translate to an "if" statement that would look
+like this:
 
 ```JavaScript
 if (
@@ -93,7 +94,7 @@ $condition = array(
     array(
         '.the-checkbox' => array('one','three'),
         // and
-        '.the-checkbox-2' => 'number'
+        '.the-checkbox-2' => 'number',
     ),
     // or
     array(
@@ -105,7 +106,7 @@ $condition = array(
     array(
         '.the-radio' => array('green','blue'),
         // and
-        '.the-radio-2' => 'color'
+        '.the-radio-2' => 'color',
     )
 );
 
@@ -124,7 +125,15 @@ $('.field-selector').fieldspy( <?php echo $condition; ?>, function(result) {
 <?php
 ```
 
+## CSS
+
+Fieldspy does not handle any CSS on your behalf. However, there is no need to hide your fields
+initially. When the DOM is ready, Fieldspy will fire once to set the inital state of your fields via
+the callbacks you choose to apply.
+
 ## Roadmap
 
-- HTML5 data attributes.
+- Passing conditions via HTML5 `data-fieldspy-condition` attribute.
+- Passign animation callbacks as keywords via HTML5 `data-fieldspy-callback` attribute.
 - Ability to check text & number input values.
+- Creation of an HTML document showing examples.
