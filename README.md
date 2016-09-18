@@ -8,6 +8,7 @@ Fieldspy lets you show or hide fields based on other fields current value.
 - Only requires jQuery
 - Can handle multiple conditions at once
 - Use on unlimited fields
+- No CSS to include
 
 ## Enqueue Scripts
 
