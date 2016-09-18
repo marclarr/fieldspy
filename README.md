@@ -1,18 +1,26 @@
 # Fieldspy
 
-Most other JS form plugins that conditionally show or hide "sub-fields" can only check for either "and"
-or "or", but not for both at the same time. Fieldspy is capable of checking unlimited "and/or"
-conditions for "choice" type fields (i.e. select, radio & checkbox).
+Most other JS form plugins that deal with conditionally showing or hiding "sub-fields" can only check
+for either "and" or "or", but not for both at the same time. Fieldspy is capable of checking unlimited
+"and/or" conditions. However, Fieldspy currently only works for "choice" type fields (i.e. select,
+radio & checkbox).
+
+## Enqueue Scripts
+
+```HTML
+<script src="jquery.js"></script>
+<script src="jquery.fieldspy.min.js"></script>
+```
 
 ## jQuery
 
 ```JavaScript
-$('.field-selector').fieldspy( condition, callback );
+jQuery.fn.fieldspy( condition, callback );
 ```
 
-The fieldspy function accepts 2 parameters and is applied to the field you would like to show or hide
-based on the condition given to the condition parameter. The callback parameter lets you pass a
-function that handles the result of the condition. Have a look at the following example:
+The jQuery fieldspy function accepts 2 parameters and is applied to the field you would like to show
+or hide based on the condition given to the condition parameter. The callback parameter lets you pass
+a function that handles the result of the condition. Have a look at the following example:
 
 ```JavaScript
 var condition = [
@@ -27,15 +35,16 @@ $('.field-selector').fieldspy( condition, function(result) {
 });
 ```
 
-In the example above `$('.field-selector')` will show or hide depending if the field referenced inside
-the condition is set to `value-to-look-for` or not.
+In the example above `$('.field-selector')` will show or hide if `value-to-look-for` is the current
+value of `.other-field-selector`.
 
 ### Writing Conditions
 
 As mentioned before, Fieldspy is capable of handling multiple "and/or" conditions. You may have already
-noticed in the example above that the condition variable is an array that holds an object literal. You
-can pass multiple object literals to the condition array. Imagine an "or" operator between each object
-and an "and" operator between all name-value pairs inside an object like so:
+noticed that in the example above the condition variable is an array that holds an object literal. You
+can pass multiple object literals to the condition array. From here, simply imagine an "or" operator
+between each object and an "and" operator between all name-value pairs inside an object. Have a look
+at the example below:
 
 ```JavaScript
 var condition = [
@@ -59,7 +68,8 @@ var condition = [
 ];
 ```
 
-The example above would translate to an "if" statement that would look like this:
+Value arrays inside an object are shorthand "and" operators. With that in mind, the example above
+would translate to an "if" statement that would look like this:
 
 ```JavaScript
 if (
@@ -76,7 +86,7 @@ if (
 ## JSON Translations
 
 Because Fieldspy deals with object literals in it's conditions, JSON can help translate conditions
-that are written in other languages. Here is PHP example:
+that are written in other languages. Here is an example written in PHP:
 
 ```PHP
 $condition = array(
@@ -100,6 +110,7 @@ $condition = array(
 );
 
 $condition = json_encode( $condition );
+
 ?>
 <script>
 $('.field-selector').fieldspy( <?php echo $condition; ?>, function(result) {
@@ -112,3 +123,8 @@ $('.field-selector').fieldspy( <?php echo $condition; ?>, function(result) {
 </script>
 <?php
 ```
+
+## Roadmap
+
+- HTML5 data attributes.
+- Ability to check text & number input values.

@@ -1,8 +1,9 @@
-/*!
- * Fieldspy jQuery Plugin v0.1
+/**
+ * Fieldspy jQuery Plugin v1.0
  * https://github.com/marclarr/fieldspy/
  *
- * Copyright 2014 Marc Wiest (https://marcwiest.com)
+ * @license
+ * Copyright 2016 Marc Wiest (https://marcwiest.com)
  * Released under the MIT license
  */
 
@@ -13,13 +14,14 @@
         var target = this,
             fields = getSelectors();
 
-        if ( ! fields ) // bail early
+        if ( ! fields ) {
             return;
+        }
 
         /**
          * Establish the initial value.
          */
-        $(fields).ready( function( event ) {
+        $(fields).ready( function() {
 
             var endResult = evalCondition( condition );
 
@@ -31,7 +33,7 @@
         /**
          * Watch fields for changes.
          */
-        $(fields).change( function( event ) {
+        $(fields).change( function() {
 
             var endResult = evalCondition( condition );
 
