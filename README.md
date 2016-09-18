@@ -128,8 +128,8 @@ $('.field-selector').fieldspy( <?php echo $condition; ?>, function(result) {
 ## CSS
 
 Fieldspy does not handle any CSS on your behalf. However, there is no need to hide your fields
-initially. When the DOM is ready, Fieldspy will fire once to set the inital state of your fields via
-the callbacks you choose to apply.
+initially via CSS yourself. When the DOM is ready, Fieldspy will fire once to set the inital state of
+your fields via the callbacks you chose to apply.
 
 ## Roadmap
 
