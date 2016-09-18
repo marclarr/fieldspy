@@ -2,7 +2,7 @@
 
 Fieldspy lets you show or hide fields based on other fields current value.
 
-#### Features
+### Features
 
 - Easy to setup
 - Only requires jQuery
