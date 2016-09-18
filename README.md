@@ -2,10 +2,12 @@
 
 Fieldspy lets you show or hide fields based on other fields current value.
 
-Most other JS form plugins that deal with conditionally showing or hiding "sub-fields" can only check
-for either "and" or "or", but not for both at the same time. Fieldspy is capable of checking unlimited
-"and/or" conditions. However, Fieldspy currently only works for "choice" type fields (i.e. select,
-radio & checkbox).
+#### Features
+
+- Easy to setup
+- Only requires jQuery
+- Can handle multiple conditions at once
+- Use on unlimited fields
 
 ## Enqueue Scripts
 
@@ -35,15 +37,15 @@ $('.field-selector').fieldspy( condition, function(result) {
 
 In the example above, the `result` parameter of the callback function is a boolean and
 `$('.field-selector')` will show or hide if `value-to-look-for` is the current value of
-`.other-field-selector`.
+`.other-field-selector`. The condition must always be an array containing object literals.
 
 ### Writing Conditions
 
-As mentioned before, Fieldspy is capable of handling multiple "and/or" conditions. You may have already
-noticed that in the example above the condition variable is an array that holds an object literal. You
-can pass multiple object literals to the condition array. Now simply imagine an "or" operator
-between each object and an "and" operator between all name-value pairs inside an object. Have a look
-at the example below:
+Fieldspy is capable of handling multiple "and/or" conditions simultaneously. However, Fieldspy currently
+only works for "choice" field types (i.e. select, radio & checkbox). You may have already noticed that in the
+example above the condition variable is an array that holds an object literal. You can pass multiple
+object literals to the condition array and than simply imagine an "or" operator between each object
+and an "and" operator between all name-value pairs. Have a look at the example below:
 
 ```JavaScript
 var condition = [
@@ -98,7 +100,7 @@ $condition = array(
     // or
     array(
         '.the-select' => 'adidas',
-        //and
+        // and
         '.the-select-2' => 'shoe',
     ),
     // or
@@ -135,4 +137,5 @@ your fields via the callbacks you chose to apply.
 - Passing conditions via HTML5 `data-fieldspy-condition` attribute.
 - Passign animation callbacks as keywords via HTML5 `data-fieldspy-callback` attribute.
 - Ability to check text & number input values.
+- Ability to pass a single object literal as a condition.
 - Creation of an HTML document showing examples.
