@@ -61,7 +61,7 @@ var condition = [
     },
     // or
     {
-        '.the-radio' : [ 'green', 'blue' ]
+        '.the-radio' : [ 'green', 'blue' ],
         // and
         '.the-radio-2' : 'color'
     }
